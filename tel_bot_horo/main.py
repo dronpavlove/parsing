@@ -56,6 +56,8 @@ def handle(call) -> Any:
     if call.data in horo_data.values():
         horo_name = call.data
         User(call.message.chat.id, bot, command_text).horo_detail(horo_name=horo_name)
+    elif call.data == 'all_horo':
+        User(call.message.chat.id, bot, command_text).horo_list()
     elif call.data.split(',')[0] in day_data.values():
         horo_name = call.data.split(',')[1]
         day = call.data.split(',')[0]
